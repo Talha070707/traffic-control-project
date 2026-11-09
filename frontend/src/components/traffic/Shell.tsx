@@ -1,0 +1,7 @@
+import { Link } from "@tanstack/react-router";
+import { Activity } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function Logo() { return <Link to="/" className="flex items-center gap-3"><span className="traffic-logo"><i/><i/><i/></span><span><b className="block font-display text-xl leading-none text-primary">STC</b><small className="font-display text-[9px] tracking-[.24em] text-muted-foreground">SYSTEM</small></span></Link>; }
+export function Navbar() { return <header className="nav-shell"><Logo/><nav className="hidden items-center gap-8 md:flex">{[["/","OVERVIEW"],["/simulation","SIMULATION"],["/history","ARCHIVE"]].map(([to,label]) => <Link key={to} to={to} activeOptions={{ exact: to === "/" }} className="nav-link" activeProps={{ className: "nav-link nav-active" }}>{label}</Link>)}</nav><Button asChild variant="neon" size="lg"><Link to="/simulation">INITIALIZE <Activity/></Link></Button></header>; }
+export function Footer() { return <footer className="footer"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-7 md:flex-row"><Logo/><div className="flex gap-7">{[["/","OVERVIEW"],["/simulation","SIMULATION"],["/history","ARCHIVE"]].map(([to,l])=><Link key={to} to={to} className="nav-link">{l}</Link>)}</div><Button asChild variant="neon"><Link to="/simulation">INITIALIZE SYSTEM →</Link></Button></div><p className="footer-line">SMART TRAFFIC CONTROLLER · OS SCHEDULING PROJECT · REACT STACK · ROUND ROBIN vs FCFS</p></footer>; }
